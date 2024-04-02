@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 const customerSchema = new mongoose.Schema(
   {
-    first_name: {
-      type: String,
-      required: true,
-    },
-    last_name: {
+    userName: {
       type: String,
       required: true,
     },
@@ -17,11 +13,7 @@ const customerSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-      min: [6, "The password is not strong enough"],
-    },
-    shipping_address: {
-      type: String,
-      required: true,
+      min: [3, "The password is not strong enough"],
     },
   },
   { timestamp: true }

@@ -30,14 +30,12 @@ class CustomerController {
       }
 
       const newUser = new Customer({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
+        userName: req.body.userName,
         email: req.body.email,
         password: CryptoJS.SHA256(
           req.body.password,
           process.env.PASS_SEC
         ).toString(),
-        shipping_address: req.body.shipping_address,
       });
 
       await newUser.save();
@@ -48,6 +46,7 @@ class CustomerController {
       res.status(500).json({
         status: 500,
         message: "Server error",
+        error
       });
     }
   }
